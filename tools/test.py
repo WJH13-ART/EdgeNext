@@ -24,16 +24,16 @@ from mmseg.utils import build_ddp, build_dp, get_device, setup_multi_processes
 
 def parse_args():
     # 多卡跑 CUDA_VISIBLE_DEVICES=0,1 PORT=29500 bash tools/dist_test.sh
-    # --config=/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/SegNeXt-main/configs_my/segnext/base/all_train_lsk_aspp.80k.py --eval=mIoU 2
+    # --config=/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/EdgeNext-main/configs_my/EdgeNext/base/all_train_lsk_aspp.80k.py --eval=mIoU 2
     parser = argparse.ArgumentParser(
         description='mmseg test (and eval) a model')
     parser.add_argument('--config', help='test config file path',
-        default='/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/SegNeXt-main/configs_my/segnext/base/segnext.base.512x512.gengdi.80k.py')
+        default='/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/EdgeNext-main/configs_my/EdgeNext/base/EdgeNext.base.512x512.gengdi.80k.py')
     parser.add_argument('--checkpoint', help='checkpoint file',
-        default='/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/SegNeXt-main/tools/work_dirs/segnext.base.512x512.gengdi.80k/iter_80000.pth')
+        default='/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/EdgeNext-main/tools/work_dirs/EdgeNext.base.512x512.gengdi.80k/iter_80000.pth')
     parser.add_argument(
         '--work-dir',
-        # default='/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/SegNeXt-main/pred_results',
+        # default='/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/EdgeNext-main/pred_results',
         help=('if specified, the evaluation metric results will be dumped'
               'into the directory as json'))
     parser.add_argument(
@@ -55,7 +55,7 @@ def parse_args():
     parser.add_argument('--show', action='store_true', help='show results')
     parser.add_argument(
         '--show-dir',
-        default='/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/SegNeXt-main/results',
+        default='/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/EdgeNext-main/results',
         help='directory where painted images will be saved')
     parser.add_argument(
         '--gpu-collect',
@@ -69,7 +69,7 @@ def parse_args():
         '(only applicable to non-distributed testing)')
     parser.add_argument(
         '--tmpdir',
-        default="/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/SegNeXt-main/results",
+        default="/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/EdgeNext-main/results",
         help='tmp directory used for collecting results from multiple '
         'workers, available when gpu_collect is not specified')
     parser.add_argument(
