@@ -24,16 +24,16 @@ torch.autograd.set_detect_anomaly(True)
 
 def parse_args():
     # CUDA_VISIBLE_DEVICES=0,1 PORT=29500 bash tools/dist_train.sh
-    # --config=/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/SegNeXt-main/configs_my/segnext/base/all_train_lsk_aspp.80k.py 2
+    # --config=/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/EdgeNext-main/configs_my/EdgeNext/base/all_train_lsk_aspp.80k.py 2
     parser = argparse.ArgumentParser(description='Train a segmentor')
     parser.add_argument('--config',
-                        default="/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/SegNeXt-main/configs_my/segnext/base/segnext.base.512x512.gengdi.80k.py",
+                        default="/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/EdgeNext-main/configs_my/EdgeNext/base/EdgeNext.base.512x512.gengdi.80k.py",
                         help='train config file path')
     # parser.add_argument('config',helpyige='train config file path')
     parser.add_argument('--work-dir', help='the dir to save logs and models')
     parser.add_argument(
         '--load-from', help='the checkpoint file to load weights from',
-        default="/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/SegNeXt-main/tools/work_dirs/pre_train/latest.pth")
+        default="/media/xia/40903229-3d5d-4272-81a0-93b4ad6abb57/WJH/EdgeNext-main/tools/work_dirs/pre_train/latest.pth")
     parser.add_argument(
         '--resume-from', help='the checkpoint file to resume from')
     parser.add_argument(
